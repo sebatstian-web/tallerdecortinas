@@ -1,0 +1,37 @@
+<nav class="purple">
+  <div class="container nav-wrapper">
+    <a routerLink="/inicio" class="brand-logo titulo">Taller de Cortinas</a>
+    <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li *ngFor="let opciones of _servicio.menuOpciones" routerLinkActive="active">
+        <a [routerLink]="opciones.url" class="white-text">{{ opciones.opcion }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile">
+  <li *ngFor="let opciones of _servicio.menuOpciones" routerLinkActive="active">
+    <a [routerLink]="opciones.url" class="sidenav-close">
+      <i class="material-icons">{{ opciones.icono }}</i>
+      {{ opciones.opcion }}
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Estamos atentos a su consulta.</a></li>
+  <li *ngFor="let contacto of contactos">
+    <a [href]="contacto.url" target="_blank">{{ contacto.medio }}</a>
+  </li>
+</ul>
+
+<div class="slider">
+  <ul class="slides">
+    <li *ngFor="let foto of fotosSlider">
+      <img [src]="foto.img">
+      <div [class]="foto.clase">
+        <h3 class="light grey-text text-lighten-3 titulo-slider">{{ foto.titulo }}</h3>
+        <h5 class="light grey-text text-lighten-3">{{ foto.texto }}</h5>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Rochester&display=swap');
+
+a {
+  text-decoration: none !important;
+}
+
+.titulo {
+  font-family: 'Rochester', cursive;
+}
+
+.cargando {
+  margin-top: 6rem;
+}
+
+.likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.likes span {
+  margin-left: 5px;
+}
+
+.comentarios {
+  margin-left: 30px;
+}
+
+.subrayado:hover {
+  text-decoration: underline !important;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.social {
+  width: 60px;
+  margin-right: 20px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.foto-cantidad {
+  margin-top: 20px;
+}
+
+.paginacion /deep/ .ngx-pagination .current {
+  background: rgb(251, 140, 0);
+}
+
+.imagen-galeria {
+  height: 280px;
+}
+
+.titulo-slider {
+  font-weight: 400;
+}
+
+.lista {
+  list-style-type: disc !important;
+  margin-left: 20px;
+}
+
+.nosotros-tarjeta {
+  height: 210px;
+}
+
+.version {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.captcha {
+  display: grid;
+  justify-content: center;
+}
+
+.card {
+  margin-bottom: 45px !important;
+}
+
+/* Modificando los colores del formulario */
+.input-field input:focus,
+.input-field textarea:focus {
+  border-bottom: 1px solid rgb(251, 140, 0) !important;
+  box-shadow: 0 1px 0 0 rgb(251, 140, 0) !important;
+}
+
+.input-field .active {
+  color: rgb(251, 140, 0) !important;
+}
+
+.btn-expand {
+  width: 100%;
+}
+
+/* Animaciones */
+.animated {
+  animation-duration: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+/* Media Queries */
+@media (max-width: 415px) {
+  .titulo {
+    font-size: 1.5rem !important;
+  }
+
+  .nosotros-tarjeta {
+    height: auto;
+  }
+}

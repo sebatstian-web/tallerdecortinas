@@ -1,0 +1,147 @@
+<div class="row orange darken-1 z-depth-3">
+  <div class="container animated fadeIn">
+    <div class="col s12 white-text">
+      <h4 class="white-text">Contáctenos</h4>
+      <p>
+        Lo invitamos a comunicarse con nosotros para obtener más información
+        sobre nuestros trabajos de cortinajes, o de alguna foto de nuestra
+        galería que haya captado su atención y conocer más detalles.
+        ¡Escribanos! le responderemos a la brevedad.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container animated fadeIn">
+  <div class="row">
+    <div class="col s12 l7">
+      <form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix grey-text text-darken-1"
+              >account_circle</i
+            >
+            <input type="text" formControlName="nombre" placeholder="Nombre" />
+            <span
+              *ngIf="!formulario.controls.nombre.valid && formulario['controls']['nombre'].touched"
+              class="helper-text animated fadeIn"
+            >
+              Su nombre es necesario.
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix grey-text text-darken-1">email</i>
+            <input
+              type="email"
+              formControlName="email"
+              placeholder="Correo electrónico"
+            />
+            <span
+              *ngIf="!formulario.controls.email.valid && formulario['controls']['email'].touched"
+              class="helper-text animated fadeIn"
+            >
+              Su email válido es necesario.
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix grey-text text-darken-1">phone</i>
+            <input
+              type="text"
+              formControlName="telefono"
+              placeholder="Teléfono"
+            />
+            <span
+              *ngIf="!formulario.controls.telefono.valid && formulario['controls']['telefono'].touched"
+              class="helper-text animated fadeIn"
+            >
+              Su teléfono es necesario.
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix grey-text text-darken-1"
+              >insert_comment</i
+            >
+            <textarea
+              class="materialize-textarea"
+              formControlName="consulta"
+              placeholder="Consulta"
+            ></textarea>
+            <span
+              *ngIf="!formulario.controls.consulta.valid && formulario['controls']['consulta'].touched"
+              class="helper-text animated fadeIn"
+            >
+              Su consulta o duda es importante.
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 captcha">
+            <re-captcha formControlName="recaptcha"></re-captcha>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 center">
+            <div
+              *ngIf="envio"
+              class="card-panel orange lighten-4 animated fadeIn"
+            >
+              <span>¡Su consulta se ha enviado con éxito!</span> <br />
+              <span>👌</span>
+            </div>
+            <button
+              *ngIf="!enviando"
+              type="submit"
+              class="btn-large orange darken-1 animated fadeIn btn-expand"
+              [disabled]="!formulario.valid"
+            >
+              <i class="material-icons right">send</i>
+              Enviar
+            </button>
+            <button
+              *ngIf="enviando"
+              type="button"
+              class="btn-large orange darken-1 animated fadeIn btn-expand"
+              disabled
+            >
+              <i class="material-icons right">hourglass_full</i>
+              Enviando...
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col s12 l5">
+      <div>
+        <ul class="collection with-header z-depth-1">
+          <li class="collection-header">
+            <h4>Nuestros medios de comunicación</h4>
+            <p>
+              Si lo desea, puede utilizar también estos otros medio de
+              comunicación que tenemos disponibles para usted.
+            </p>
+          </li>
+          <a
+            *ngFor="let contacto of contactos"
+            [href]="contacto.url"
+            class="collection-item orange-text text-darken-1"
+            target="_blank"
+          >
+            {{ contacto.dato }}
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

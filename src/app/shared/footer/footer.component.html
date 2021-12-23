@@ -1,0 +1,64 @@
+<footer class="page-footer purple">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Redes sociales</h5>
+        <p class="grey-text text-lighten-4">
+          Lo invitamos a visitar y seguirnos en nuestras redes sociales para
+          mantenernos comunicados.
+        </p>
+        <span *ngFor="let social of sociales">
+          <a [href]="social.url" [title]="social.titulo" target="_blank">
+            <img
+              class="responsive-img social"
+              [src]="social.icono"
+              [alt]="social.titulo"
+            />
+          </a>
+        </span>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Nuestro sitio</h5>
+        <ul>
+          <li *ngFor="let opciones of _servicio.menuOpciones">
+            <a
+              [routerLink]="opciones.url"
+              class="grey-text text-lighten-3 subrayado"
+            >
+              {{ opciones.opcion }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <div class="container center">
+      <div *ngIf="loading" class="preloader-wrapper small active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+
+      <span *ngIf="!loading" class="animated fadeIn">
+        &copy; {{ fecha }} &#8226; {{ footer.message }}
+        <a
+          class="grey-text text-lighten-4 subrayado"
+          [href]="footer.url"
+          target="_blank"
+          >{{ footer.site }}</a
+        >
+      </span>
+      <!-- <span class="version">Versión 4.1.1</span> -->
+    </div>
+  </div>
+</footer>
